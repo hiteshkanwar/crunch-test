@@ -41,9 +41,9 @@ export default function Philosophy() {
                 <Image
                   src={philosophy.icon}
                   alt={philosophy.title}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
                 />
               </div>
               <h3 className="text-2xl font-bold-cond text-purple mb-1 uppercase tracking-wide">

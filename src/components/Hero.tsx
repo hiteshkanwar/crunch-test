@@ -12,7 +12,7 @@ export default function Hero() {
         }}
       ></div>
 
-      <div className="absolute -bottom-4 md:-bottom-8 max-w-7xl mx-auto flex items-center justify-center w-full left-0 right-0">
+      <div className="absolute -bottom-[8px] md:-bottom-[18px] max-w-7xl mx-auto flex items-center justify-center w-full left-0 right-0">
         <h1 className="text-6xl md:text-[125px] font-black-cond text-white">
           HIITZONE
         </h1>

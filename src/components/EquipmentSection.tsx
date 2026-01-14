@@ -60,7 +60,7 @@ export default function EquipmentSection() {
           Get unlimited advanced HIIT classes, plus everything else Crunch has
           to offer, with a Peak Results membership.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-[16px] md:gap-4 items-center">
           <div className="relative md:col-span-4 h-full">
             <Image
               src={feature1}
@@ -69,7 +69,7 @@ export default function EquipmentSection() {
             />
           </div>
 
-          <div className="md:col-span-8">
+          <div className="md:col-span-8 px-3 md:px-0">
             <h3 className="text-2xl font-bold-cond text-primary mb-2">
               High Intensity Interval Training
             </h3>
@@ -91,7 +91,7 @@ export default function EquipmentSection() {
             />
           </div>
 
-          <div className="md:col-span-8">
+          <div className="md:col-span-8 px-3 md:px-0">
             <h3 className="text-2xl font-bold-cond text-primary mb-2">
               5,000 Sq Ft of Proprietary Equipment
             </h3>
@@ -99,9 +99,11 @@ export default function EquipmentSection() {
               Our world-class functional training area includes:
             </p>
 
-            <ul className="grid grid-cols-2 list-disc text-secondary list-inside text-base">
+            <ul className="grid grid-cols-2 list-disc text-secondary list-outside text-base gap-x-4 gap-y-2 pl-6">
               {amenities.map((amenity) => (
-                <li key={amenity.id}>{amenity.name}</li>
+                <li key={amenity.id} className="pl-2">
+                  {amenity.name}
+                </li>
               ))}
             </ul>
           </div>
@@ -116,7 +118,7 @@ export default function EquipmentSection() {
             />
           </div>
 
-          <div className="space-y-3 md:col-span-8">
+          <div className="space-y-3 md:col-span-8 px-3 md:px-0">
             <h2 className="text-3xl font-bold-cond text-primary mb-2">
               HIIT Workout Classes We Offer:
             </h2>

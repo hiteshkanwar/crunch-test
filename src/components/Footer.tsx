@@ -36,7 +36,7 @@ export default function Footer() {
   return (
     <footer className="py-12 bg-black ">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div className="w-full md:w-auto">
           <ul className="mb-6 flex items-center gap-6">
             {socialLinks.map((social, index) => (
               <li key={index}>
@@ -53,7 +53,7 @@ export default function Footer() {
             ))}
           </ul>
           <h2 className="text-white font-bold text-sm">© Crunch Fitness</h2>
-          <p className="uppercase text-white text-xs font-bold-cond">
+          <p className="uppercase text-gray-500 text-xs font-bold-cond border-b border-gray-500 pb-6 md:pb-0 md:border-b-0">
             All rights reserved
           </p>
         </div>
@@ -61,9 +61,9 @@ export default function Footer() {
           <button className=" text-yellow font-bold text-sm tracking-[10%]">
             FREE TRIAL
           </button>
-          <ul className="flex flex-wrap list-disc list-inside text-gray-500 justify-start md:justify-end text-xs font-bold uppercase gap-x-6 gap-y-2 mt-6">
+          <ul className="flex flex-wrap list-disc list-outside text-gray-500 justify-start md:justify-end text-xs font-bold uppercase gap-x-6 gap-y-2 mt-6 pl-6">
             {footerLinks.map((link, index) => (
-              <li key={index}>
+              <li key={index} className={index === 0 ? "list-none" : "pl-2"}>
                 <Link
                   href={link.href}
                   className="hover:text-orange-500 transition-colors"
