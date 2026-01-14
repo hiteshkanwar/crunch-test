@@ -66,7 +66,22 @@ const amenitiesData: Amenity[] = [
     id: 12,
     name: "Air Bikes",
     description: "High-intensity air resistance bikes for cardio and strength training"
-  }
+  },
+  {
+    id: 13,
+    name: "Sleds",
+    description: "Weighted sleds for pushing and pulling exercises to build power and endurance"
+  },
+  {
+    id: 14,
+    name: "Sandbags",
+    description: "Various weight sandbags for functional strength and conditioning workouts"
+  },
+  {
+    id: 15,
+    name: "Jump Ropes",
+    description: "Speed ropes and weighted jump ropes for cardio and coordination training"
+  },
 ];
 
 const totalAmenities = amenitiesData.length;
