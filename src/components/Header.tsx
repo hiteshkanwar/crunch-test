@@ -163,31 +163,33 @@ export default function Header() {
                 </div>
                 {isLanguageOpen && (
                   <div
-                    className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[150px] z-50"
+                    className="absolute top-full right-0 pt-2 bg-transparent z-50"
                     onMouseEnter={() => setIsLanguageOpen(true)}
                     onMouseLeave={() => setIsLanguageOpen(false)}
                   >
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => {
-                          setSelectedLanguage(lang.code);
-                          setIsLanguageOpen(false);
-                        }}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
-                          selectedLanguage === lang.code
-                            ? "text-red font-bold"
-                            : "text-primary"
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span>{lang.code}</span>
-                          <span className="text-xs text-secondary ml-2">
-                            {lang.name}
-                          </span>
-                        </div>
-                      </button>
-                    ))}
+                    <div className="bg-white shadow-lg rounded-md py-2 min-w-[150px]">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setSelectedLanguage(lang.code);
+                            setIsLanguageOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
+                            selectedLanguage === lang.code
+                              ? "text-red font-bold"
+                              : "text-primary"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span>{lang.code}</span>
+                            <span className="text-xs text-secondary ml-2">
+                              {lang.name}
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -242,7 +244,7 @@ export default function Header() {
                   {item.name === "WORK OUT WITH US" &&
                     hoveredDropdown === item.name && (
                       <div
-                        className="absolute top-10 left-0 pt-2 w-screen z-50"
+                        className="absolute top-8 left-0 pt-2 w-screen z-50"
                         onMouseEnter={() => setHoveredDropdown(item.name)}
                         onMouseLeave={() => setHoveredDropdown(null)}
                       >
@@ -270,7 +272,7 @@ export default function Header() {
 
                   {item.name === "ABOUT" && hoveredDropdown === item.name && (
                     <div
-                      className="absolute top-10 left-0 pt-2 w-screen z-50"
+                      className="absolute top-8 left-0 pt-2 w-screen z-50"
                       onMouseEnter={() => setHoveredDropdown(item.name)}
                       onMouseLeave={() => setHoveredDropdown(null)}
                     >
@@ -299,7 +301,7 @@ export default function Header() {
                   {item.name === "ENTERPRISE" &&
                     hoveredDropdown === item.name && (
                       <div
-                        className="absolute top-10 left-0 pt-2 w-screen z-50"
+                        className="absolute top-8 left-0 pt-2 w-screen z-50"
                         onMouseEnter={() => setHoveredDropdown(item.name)}
                         onMouseLeave={() => setHoveredDropdown(null)}
                       >
