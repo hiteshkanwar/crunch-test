@@ -94,10 +94,21 @@ const navItems: NavItem[] = [
   { name: "ENTERPRISE", href: "/", hasDropdown: true },
 ];
 
+const languages = [
+  { code: "EN", name: "English" },
+  { code: "ES", name: "Español" },
+  { code: "FR", name: "Français" },
+  { code: "DE", name: "Deutsch" },
+  { code: "IT", name: "Italiano" },
+  { code: "PT", name: "Português" },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredDropdown, setHoveredDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
   const toggleMobileDropdown = (itemName: string) => {
     setMobileExpanded(mobileExpanded === itemName ? null : itemName);
@@ -135,10 +146,50 @@ export default function Header() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-2 cursor-pointer hover:text-orange-500 transition-colors">
-                <Image src={langIcon} alt="Language" width={20} height={20} />
-                <span className="text-sm">EN</span>
-                <ChevronDown className="h-4 w-4" />
+              <div className="hidden md:block relative">
+                <div
+                  className="flex items-center gap-2 cursor-pointer hover:text-orange-500 transition-colors"
+                  onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                  onMouseEnter={() => setIsLanguageOpen(true)}
+                  onMouseLeave={() => setIsLanguageOpen(false)}
+                >
+                  <Image src={langIcon} alt="Language" width={20} height={20} />
+                  <span className="text-sm">{selectedLanguage}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      isLanguageOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+                {isLanguageOpen && (
+                  <div
+                    className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md py-2 min-w-[150px] z-50"
+                    onMouseEnter={() => setIsLanguageOpen(true)}
+                    onMouseLeave={() => setIsLanguageOpen(false)}
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setSelectedLanguage(lang.code);
+                          setIsLanguageOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
+                          selectedLanguage === lang.code
+                            ? "text-red font-bold"
+                            : "text-primary"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>{lang.code}</span>
+                          <span className="text-xs text-secondary ml-2">
+                            {lang.name}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="hidden md:block w-px h-6 bg-gray-700"></div>
@@ -190,55 +241,43 @@ export default function Header() {
 
                   {item.name === "WORK OUT WITH US" &&
                     hoveredDropdown === item.name && (
-                      <div className="absolute top-full left-0 mt-0 w-screen bg-white shadow-lg py-8">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {megaMenuItems.map((megaItem, index) => (
-                              <div
-                                key={index}
-                                className="cursor-pointer hover:opacity-80 transition-opacity"
-                              >
-                                <h3 className="text-primary font-bold-cond text-base mb-1 uppercase">
-                                  {megaItem.title}
-                                </h3>
-                                <p className="text-secondary text-sm">
-                                  {megaItem.description}
-                                </p>
-                              </div>
-                            ))}
+                      <div
+                        className="absolute top-10 left-0 pt-2 w-screen z-50"
+                        onMouseEnter={() => setHoveredDropdown(item.name)}
+                        onMouseLeave={() => setHoveredDropdown(null)}
+                      >
+                        <div className="bg-white shadow-lg py-8">
+                          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                              {megaMenuItems.map((megaItem, index) => (
+                                <div
+                                  key={index}
+                                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                                >
+                                  <h3 className="text-primary font-bold-cond text-base mb-1 uppercase">
+                                    {megaItem.title}
+                                  </h3>
+                                  <p className="text-secondary text-sm">
+                                    {megaItem.description}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
                     )}
 
                   {item.name === "ABOUT" && hoveredDropdown === item.name && (
-                    <div className="absolute top-full left-0 mt-0 w-screen bg-white shadow-lg py-8">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                          {aboutMenuItems.map((menuItem, index) => (
-                            <div
-                              key={index}
-                              className="cursor-pointer hover:opacity-80 transition-opacity"
-                            >
-                              <h3 className="text-primary font-bold-cond text-base mb-1 uppercase">
-                                {menuItem.title}
-                              </h3>
-                              <p className="text-secondary text-sm">
-                                {menuItem.description}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {item.name === "ENTERPRISE" &&
-                    hoveredDropdown === item.name && (
-                      <div className="absolute top-full left-0 mt-0 w-screen bg-white shadow-lg py-8">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div
+                      className="absolute top-10 left-0 pt-2 w-screen z-50"
+                      onMouseEnter={() => setHoveredDropdown(item.name)}
+                      onMouseLeave={() => setHoveredDropdown(null)}
+                    >
+                      <div className="bg-white shadow-lg py-8">
+                        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {enterpriseMenuItems.map((menuItem, index) => (
+                            {aboutMenuItems.map((menuItem, index) => (
                               <div
                                 key={index}
                                 className="cursor-pointer hover:opacity-80 transition-opacity"
@@ -251,6 +290,36 @@ export default function Header() {
                                 </p>
                               </div>
                             ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {item.name === "ENTERPRISE" &&
+                    hoveredDropdown === item.name && (
+                      <div
+                        className="absolute top-10 left-0 pt-2 w-screen z-50"
+                        onMouseEnter={() => setHoveredDropdown(item.name)}
+                        onMouseLeave={() => setHoveredDropdown(null)}
+                      >
+                        <div className="bg-white shadow-lg py-8">
+                          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                              {enterpriseMenuItems.map((menuItem, index) => (
+                                <div
+                                  key={index}
+                                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                                >
+                                  <h3 className="text-primary font-bold-cond text-base mb-1 uppercase">
+                                    {menuItem.title}
+                                  </h3>
+                                  <p className="text-secondary text-sm">
+                                    {menuItem.description}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -277,10 +346,49 @@ export default function Header() {
                 />
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <Image src={langIcon} alt="Language" width={20} height={20} />
-                  <span className="text-sm">EN</span>
-                  <ChevronDown className="h-4 w-4" />
+                <div className="relative">
+                  <div
+                    className="flex items-center gap-2 cursor-pointer"
+                    onClick={() => toggleMobileDropdown("LANGUAGE")}
+                  >
+                    <Image
+                      src={langIcon}
+                      alt="Language"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-sm">{selectedLanguage}</span>
+                    {mobileExpanded === "LANGUAGE" ? (
+                      <ChevronUp className="h-4 w-4" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
+                  </div>
+                  {mobileExpanded === "LANGUAGE" && (
+                    <div className="absolute top-full right-0 mt-2 bg-gray-800 rounded-md py-2 min-w-[150px] z-50 shadow-lg">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setSelectedLanguage(lang.code);
+                            toggleMobileDropdown("LANGUAGE");
+                          }}
+                          className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                            selectedLanguage === lang.code
+                              ? "text-red font-bold bg-gray-700"
+                              : "text-white hover:bg-gray-700"
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span>{lang.code}</span>
+                            <span className="text-xs text-gray-300 ml-2">
+                              {lang.name}
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <button onClick={() => setIsOpen(false)}>
                   <X className="h-6 w-6" />
