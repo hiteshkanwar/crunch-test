@@ -61,24 +61,24 @@ const enterpriseMenuItems: MegaMenuItem[] = [
       "Claim your exclusive Crunch Fitness discount offered by your company.",
   },
   {
-    title: "corporate partnerships",
+    title: "Corporate partnerships",
     description:
       "Encourage your employees to improve their physical health and overall mental wellness!",
   },
   {
-    title: "Enterprise Solution 3",
+    title: "Healthcare memberships",
     description:
-      "Dummy description for enterprise solution 3. This will be updated later.",
+      "Explore our partnerships with a wide range of healthcare programs.",
   },
   {
-    title: "Enterprise Solution 4",
+    title: "Brand partnerships",
     description:
-      "Dummy description for enterprise solution 4. This will be updated later.",
+      "Get your brand in front of 2.5 million active gym goers in the U.S.!",
   },
   {
-    title: "Enterprise Solution 5",
+    title: "Own a crunch",
     description:
-      "Dummy description for enterprise solution 5. This will be updated later.",
+      "Join a community of like-minded entrepreneurs across 38 states and 6 countries!",
   },
 ];
 
