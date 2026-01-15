@@ -1,6 +1,6 @@
 "use client";
 
-import bannerBg from "@/app/assets/images/banner-bg.png";
+import bannerBg from "@/assets/images/banner-bg.png";
 
 export default function Hero() {
   return (

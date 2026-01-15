@@ -1,7 +1,8 @@
 import Image from "next/image";
-import category1 from "@/app/assets/images/category-1.svg";
-import category2 from "@/app/assets/images/category-2.svg";
-import category3 from "@/app/assets/images/category-3.svg";
+import category1 from "@/assets/images/category-1.svg";
+import category2 from "@/assets/images/category-2.svg";
+import category3 from "@/assets/images/category-3.svg";
+import { Card } from "@/components/ui";
 
 export default function Features() {
   const features = [
@@ -36,15 +37,8 @@ export default function Features() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-1 py-6">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`text-center bg-white px-10 ${
-                index !== 0 ? "md:border-l md:border-gray-200" : ""
-              }`}
-            >
-              <div
-                className={`inline-flex items-center justify-center w-16 h-16 text-white mb-6`}
-              >
+            <Card key={index} borderLeft={index !== 0}>
+              <div className="inline-flex items-center justify-center w-16 h-16 text-white mb-6">
                 <Image
                   src={feature.icon}
                   alt={feature.title}
@@ -59,7 +53,7 @@ export default function Features() {
               </h3>
 
               <p className="text-secondary text-base">{feature.description}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import crunchLogo from "@/app/assets/images/crunch-logo.svg";
-import langIcon from "@/app/assets/images/lang-icon.svg";
-import userIcon from "@/app/assets/images/user-icon.svg";
+import crunchLogo from "@/assets/images/crunch-logo.svg";
+import langIcon from "@/assets/images/lang-icon.svg";
+import userIcon from "@/assets/images/user-icon.svg";
+import { Button } from "@/components/ui";
 
 interface MegaMenuItem {
   title: string;
@@ -117,7 +118,7 @@ export default function Header() {
   return (
     <nav className="sticky top-0 z-50">
       <div className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pr-0 sm:pr-0">
+        <div className="px-4 sm:px-6 pr-0 sm:pr-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
@@ -200,12 +201,8 @@ export default function Header() {
                 <Image src={userIcon} alt="User" width={20} height={20} />
               </div>
               <div className="flex items-center">
-                <button className="bg-yellow text-white px-6 py-4 text-sm transition-colors cursor-pointer uppercase">
-                  FREE TRIAL
-                </button>
-                <button className="bg-linear-to-r from-red to-orange text-white px-6 py-4 text-sm transition-colors cursor-pointer uppercase">
-                  JOIN
-                </button>
+                <Button variant="primary">FREE TRIAL</Button>
+                <Button variant="secondary">JOIN</Button>
               </div>
             </div>
           </div>
@@ -401,12 +398,20 @@ export default function Header() {
             {/* Mobile Navigation Items */}
             <div className="space-y-2 mb-6">
               <div className="space-y-3 px-6 mt-10">
-                <button className="w-full bg-yellow text-white font-bold py-5 px-8 uppercase tracking-[10%]">
+                <Button
+                  variant="primary"
+                  fullWidth
+                  className="py-5 px-8 tracking-[10%]"
+                >
                   FREE TRIAL
-                </button>
-                <button className="w-full bg-linear-to-r from-red to-yellow text-white font-bold py-5 px-8 uppercase tracking-[10%]">
+                </Button>
+                <Button
+                  variant="secondary"
+                  fullWidth
+                  className="py-5 px-8 tracking-[10%]"
+                >
                   JOIN
-                </button>
+                </Button>
               </div>
               <div className="px-6">
                 <Link

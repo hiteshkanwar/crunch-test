@@ -4,7 +4,6 @@ import FreeClassPass from "@/components/FreeClassPass";
 import VideoSection from "@/components/VideoSection";
 import EquipmentSection from "@/components/EquipmentSection";
 import Philosophy from "@/components/Philosophy";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <VideoSection />
       <EquipmentSection />
       <Philosophy />
-      <Footer />
     </div>
   );
 }

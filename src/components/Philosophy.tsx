@@ -1,7 +1,7 @@
 import Image from "next/image";
-import philosophyIcon1 from "@/app/assets/images/philosophy-icon-1.svg";
-import philosophyIcon2 from "@/app/assets/images/philosophy-icon-2.svg";
-import philosophyIcon3 from "@/app/assets/images/philosophy-icon-3.svg";
+import philosophyIcon1 from "@/assets/images/philosophy-icon-1.svg";
+import philosophyIcon2 from "@/assets/images/philosophy-icon-2.svg";
+import philosophyIcon3 from "@/assets/images/philosophy-icon-3.svg";
 
 export default function Philosophy() {
   const philosophies = [

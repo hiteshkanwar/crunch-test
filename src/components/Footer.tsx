@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import icFacebookIcon from "@/app/assets/images/ic-facebook.svg";
-import icInstagramIcon from "@/app/assets/images/ic-instagram.svg";
-import icTwitterIcon from "@/app/assets/images/ic-twitter.svg";
-import icYoutubeIcon from "@/app/assets/images/ic-youtube.svg";
-import icTiktokIcon from "@/app/assets/images/ic-tiktok.svg";
+import icFacebookIcon from "@/assets/images/ic-facebook.svg";
+import icInstagramIcon from "@/assets/images/ic-instagram.svg";
+import icTwitterIcon from "@/assets/images/ic-twitter.svg";
+import icYoutubeIcon from "@/assets/images/ic-youtube.svg";
+import icTiktokIcon from "@/assets/images/ic-tiktok.svg";
+import { Button } from "@/components/ui";
 
 interface FooterLink {
   label: string;
@@ -58,9 +59,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="max-w-md text-start md:text-end">
-          <button className=" text-yellow font-bold text-sm tracking-[10%]">
+          <Button variant="text" className="font-bold">
             FREE TRIAL
-          </button>
+          </Button>
           <ul className="flex flex-wrap list-disc list-outside text-gray-500 justify-start md:justify-end text-xs font-bold uppercase gap-x-6 gap-y-2 mt-6 pl-6">
             {footerLinks.map((link, index) => (
               <li key={index} className={index === 0 ? "list-none" : "pl-2"}>

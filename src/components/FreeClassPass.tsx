@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui";
+
 export default function FreeClassPass() {
   return (
     <section className="py-6 bg-gradient-primary">
@@ -7,9 +9,7 @@ export default function FreeClassPass() {
           <span className="font-bold-cond">FREE CLASS PASS</span>
         </h2>
 
-        <button className="inline-flex items-center justify-center bg-white text-primary font-bold px-8 py-3 hover:bg-gray-100 transition-all duration-200">
-          SIGN ME UP
-        </button>
+        <Button variant="outline">SIGN ME UP</Button>
       </div>
     </section>
   );

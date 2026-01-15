@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import feature1 from "@/app/assets/images/feature-1.png";
-import feature2 from "@/app/assets/images/feature-2.png";
-import feature3 from "@/app/assets/images/feature-3.png";
+import feature1 from "@/assets/images/feature-1.png";
+import feature2 from "@/assets/images/feature-2.png";
+import feature3 from "@/assets/images/feature-3.png";
 
 interface Amenity {
   id: number;
