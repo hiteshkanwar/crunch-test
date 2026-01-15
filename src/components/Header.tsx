@@ -241,7 +241,7 @@ export default function Header() {
                   {item.name === "WORK OUT WITH US" &&
                     hoveredDropdown === item.name && (
                       <div
-                        className="absolute top-8 left-0 pt-2 w-screen z-50"
+                        className="absolute top-8 left-0 right-0 pt-2 z-50"
                         onMouseEnter={() => setHoveredDropdown(item.name)}
                         onMouseLeave={() => setHoveredDropdown(null)}
                       >
@@ -269,7 +269,7 @@ export default function Header() {
 
                   {item.name === "ABOUT" && hoveredDropdown === item.name && (
                     <div
-                      className="absolute top-8 left-0 pt-2 w-screen z-50"
+                      className="absolute top-8 left-0 right-0 pt-2 z-50"
                       onMouseEnter={() => setHoveredDropdown(item.name)}
                       onMouseLeave={() => setHoveredDropdown(null)}
                     >
@@ -298,7 +298,7 @@ export default function Header() {
                   {item.name === "ENTERPRISE" &&
                     hoveredDropdown === item.name && (
                       <div
-                        className="absolute top-8 left-0 pt-2 w-screen z-50"
+                        className="absolute top-8 left-0 right-0 pt-2 z-50"
                         onMouseEnter={() => setHoveredDropdown(item.name)}
                         onMouseLeave={() => setHoveredDropdown(null)}
                       >
